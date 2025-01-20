@@ -1,0 +1,302 @@
+[
+  {
+    "id": 1,
+    "images": [
+      "https://i.ibb.co.com/MncLf68/best1.jpg",
+      "https://i.ibb.co.com/0YKQC9c/best3.jpg",
+      "https://i.ibb.co.com/FYvgy8v/best2.jpg"
+    ],
+    "title": "Luxury Villa",
+    "location": "Beverly Hills, CA",
+    "agent": {
+      "name": "Shoriful",
+      "image": "https://i.ibb.co.com/T1Yy6jD/broker1.jpg",
+      "role": "Senior Agent",
+      "address": "123 Beverly Hills Rd, CA",
+      "phone": "123-456-7890",
+      "email": "apdivcomctg@gmail.com",
+      "website": "https://luxuryvillas.com",
+      "userVerification": "agent"
+    },
+    "price": { "min": 23230, "max": 43453 },
+    "status": "For Sale",
+    "type": "Villa",
+    "yearsAgo": "7 years ago",
+    "details": "A luxurious villa with modern architecture, a large pool, and stunning views in Beverly Hills.",
+    "bedrooms": 4,
+    "toilets": 3,
+    "apartmentArea": 4500,
+    "garageSize": 2,
+    "verificationStatus": "verified"
+  },
+  {
+    "id": 2,
+    "images": [
+      "https://i.ibb.co.com/FYvgy8v/best2.jpg",
+      "https://i.ibb.co.com/MncLf68/best1.jpg",
+      "https://i.ibb.co.com/0YKQC9c/best3.jpg"
+    ],
+    "title": "Modern Apartment",
+    "location": "New York, NY",
+    "agent": {
+      "name": "Jane Smith",
+      "image": "https://i.ibb.co.com/BPpJXmy/broker2.jpg",
+      "role": "Real Estate Specialist",
+      "address": "456 Manhattan Ave, NY",
+      "phone": "987-654-3210",
+      "email": "jane.smith@example.com",
+      "website": "https://modernapartments.com",
+      "userVerification": "user"
+    },
+    "price": { "min": 23230, "max": 43453 },
+    "status": "For Rent",
+    "type": "Apartment",
+    "yearsAgo": "5 years ago",
+    "details": "A sleek modern apartment with open layouts, panoramic city views, and high-end appliances.",
+    "bedrooms": 2,
+    "toilets": 1,
+    "apartmentArea": 1200,
+    "garageSize": 1,
+    "verificationStatus": "pending"
+  },
+  {
+    "id": 3,
+    "images": [
+      "https://i.ibb.co.com/0YKQC9c/best3.jpg",
+      "https://i.ibb.co.com/FYvgy8v/best2.jpg",
+      "https://i.ibb.co.com/MncLf68/best1.jpg"
+    ],
+    "title": "Beachfront Villa",
+    "location": "Malibu, CA",
+    "agent": {
+      "name": "Chris Johnson",
+      "image": "https://i.ibb.co.com/Y81MnYD/broker2.jpg",
+      "role": "Luxury user",
+      "address": "789 Ocean Drive, CA",
+      "phone": "555-123-4567",
+      "email": "chris.johnson@example.com",
+      "website": "https://beachfrontvillas.com",
+      "userVerification": "user"
+    },
+    "price": { "min": 23230, "max": 43453 },
+    "status": "For Sale",
+    "type": "Villa",
+    "yearsAgo": "10 years ago",
+    "details": "A beachfront villa with private beach access, infinity pool, and luxurious interiors.",
+    "bedrooms": 5,
+    "toilets": 4,
+    "apartmentArea": 6000,
+    "garageSize": 3,
+    "verificationStatus": "pending"
+  },
+  {
+    "id": 4,
+    "images": [
+      "https://i.ibb.co.com/MncLf68/best1.jpg",
+      "https://i.ibb.co.com/jWyFbqx/contactbg.jpg",
+      "https://i.ibb.co.com/VQ3s9q8/1000-F-336219760-a5x6v-Ez-Un-ZRgicr-AAno6-MGss-OI1-PWf8w.jpg"
+    ],
+    "title": "Family House",
+    "location": "Houston, TX",
+    "agent": {
+      "name": "Emily Davis",
+      "image": "https://i.ibb.co.com/xMFPFKf/broker3.jpg",
+      "role": "Residential user",
+      "address": "101 Suburban St, TX",
+      "phone": "321-654-0987",
+      "email": "emily.davis@example.com",
+      "website": "https://familyhomes.com",
+      "userVerification": "user"
+    },
+    "price": { "min": 23230, "max": 43453 },
+    "status": "For Rent",
+    "type": "House",
+    "yearsAgo": "6 years ago",
+    "details": "A spacious house with a large backyard and modern upgrades, ideal for families.",
+    "bedrooms": 4,
+    "toilets": 3,
+    "apartmentArea": 3200,
+    "garageSize": 2,
+    "verificationStatus": "pending"
+  },
+  {
+    "id": 5,
+    "images": [
+      "https://i.ibb.co.com/0YKQC9c/best3.jpg",
+      "https://i.ibb.co.com/jWyFbqx/contactbg.jpg",
+      "https://i.ibb.co.com/FYvgy8v/best2.jpg"
+    ],
+    "title": "Penthouse Suite",
+    "location": "Miami, FL",
+    "agent": {
+      "name": "Sophia Turner",
+      "image": "https://i.ibb.co.com/T1Yy6jD/broker1.jpg",
+      "role": "Luxury Property Manager",
+      "address": "202 Skyline Blvd, FL",
+      "phone": "654-321-9870",
+      "email": "sophia.turner@example.com",
+      "website": "https://penthousesuites.com",
+      "userVerification": "user"
+    },
+    "price": { "min": 23230, "max": 43453 },
+    "status": "For Sale",
+    "type": "Penthouse",
+    "yearsAgo": "3 years ago",
+    "details": "This penthouse suite features a rooftop terrace, a private elevator, and premium furnishings.",
+    "bedrooms": 3,
+    "toilets": 2,
+    "apartmentArea": 4000,
+    "garageSize": 2,
+    "verificationStatus": "pending"
+  },
+  {
+    "id": 6,
+    "images": [
+      "https://i.ibb.co.com/VQ3s9q8/1000-F-336219760-a5x6v-Ez-Un-ZRgicr-AAno6-MGss-OI1-PWf8w.jpg",
+      "https://i.ibb.co.com/QJQnphx/pexels-perqued-13203194.jpg",
+      "https://i.ibb.co.com/gW6MTFK/banner1.jpg"
+    ],
+    "title": "Urban Loft",
+    "location": "San Francisco, CA",
+    "agent": {
+      "name": "Liam Bennett",
+      "image": "https://i.ibb.co.com/BPpJXmy/broker2.jpg",
+      "role": "Urban Specialist",
+      "address": "303 Market St, CA",
+      "phone": "789-012-3456",
+      "email": "liam.bennett@example.com",
+      "website": "https://urbanlofts.com",
+      "userVerification": "user"
+    },
+    "price": { "min": 23230, "max": 43453 },
+    "status": "For Rent",
+    "type": "Loft",
+    "yearsAgo": "4 years ago",
+    "details": "A contemporary loft in downtown San Francisco with open-concept living and industrial finishes.",
+    "bedrooms": 2,
+    "toilets": 1,
+    "apartmentArea": 1400,
+    "garageSize": 1,
+    "verificationStatus": "pending"
+  },
+  {
+    "id": 7,
+    "images": [
+      "https://i.ibb.co.com/FYvgy8v/best2.jpg",
+      "https://i.ibb.co.com/MncLf68/best1.jpg",
+      "https://i.ibb.co.com/0YKQC9c/best3.jpg"
+    ],
+    "title": "Cottage Retreat",
+    "location": "Aspen, CO",
+    "agent": {
+      "name": "Oliver Grant",
+      "image": "https://i.ibb.co.com/Y81MnYD/broker2.jpg",
+      "role": "Mountain Property Expert",
+      "address": "404 Forest Trail, CO",
+      "phone": "456-789-1234",
+      "email": "oliver.grant@example.com",
+      "website": "https://cottageretreats.com",
+      "userVerification": "user"
+    },
+    "price": { "min": 23230, "max": 43453 },
+    "status": "For Sale",
+    "type": "Cottage",
+    "yearsAgo": "8 years ago",
+    "details": "A charming cottage in Aspen surrounded by beautiful landscapes and ski resorts.",
+    "bedrooms": 3,
+    "toilets": 2,
+    "apartmentArea": 2000,
+    "garageSize": 1,
+    "verificationStatus": "pending"
+  },
+  {
+    "id": 8,
+    "images": [
+      "https://i.ibb.co.com/QJQnphx/pexels-perqued-13203194.jpg",
+      "https://i.ibb.co.com/gW6MTFK/banner1.jpg",
+      "https://i.ibb.co.com/VQ3s9q8/1000-F-336219760-a5x6v-Ez-Un-ZRgicr-AAno6-MGss-OI1-PWf8w.jpg"
+    ],
+    "title": "Downtown Condo",
+    "location": "Chicago, IL",
+    "agent": {
+      "name": "Sophia Clark",
+      "image": "https://i.ibb.co.com/xMFPFKf/broker3.jpg",
+      "role": "Condo Specialist",
+      "address": "505 Lakeshore Dr, IL",
+      "phone": "234-567-8901",
+      "email": "sophia.clark@example.com",
+      "website": "https://downtowncondos.com",
+      "userVerification": "user"
+    },
+    "price": { "min": 23230, "max": 43453 },
+    "status": "For Rent",
+    "type": "Condo",
+    "yearsAgo": "5 years ago",
+    "details": "A high-rise downtown condo offering modern amenities and spectacular city views.",
+    "bedrooms": 2,
+    "toilets": 2,
+    "apartmentArea": 1600,
+    "garageSize": 1,
+    "verificationStatus": "pending"
+  },
+  {
+    "id": 9,
+    "images": [
+      "https://i.ibb.co.com/rpTbB1x/pexels-charles-parker-5847347.jpg",
+      "https://i.ibb.co.com/FYvgy8v/best2.jpg",
+      "https://i.ibb.co.com/0YKQC9c/best3.jpg"
+    ],
+    "title": "Farmhouse",
+    "location": "Nashville, TN",
+    "agent": {
+      "name": "James Carter",
+      "image": "https://i.ibb.co.com/T1Yy6jD/broker1.jpg",
+      "role": "Farm Specialist",
+      "address": "606 Country Rd, TN",
+      "phone": "890-123-4567",
+      "email": "james.carter@example.com",
+      "website": "https://farmhouses.com",
+      "userVerification": "user"
+    },
+    "price": { "min": 23230, "max": 43453 },
+    "status": "For Sale",
+    "type": "Farmhouse",
+    "yearsAgo": "12 years ago",
+    "details": "A picturesque farmhouse with sprawling grounds and a rustic vibe.",
+    "bedrooms": 5,
+    "toilets": 3,
+    "apartmentArea": 5000,
+    "garageSize": 2,
+    "verificationStatus": "pending"
+  },
+  {
+    "id": 10,
+    "images": [
+      "https://i.ibb.co.com/gW6MTFK/banner1.jpg",
+      "https://i.ibb.co.com/QJQnphx/pexels-perqued-13203194.jpg",
+      "https://i.ibb.co.com/gW6MTFK/banner1.jpg"
+    ],
+    "title": "Suburban Home",
+    "location": "Seattle, WA",
+    "agent": {
+      "name": "Charlotte White",
+      "image": "https://i.ibb.co.com/BPpJXmy/broker2.jpg",
+      "role": "Residential Specialist",
+      "address": "707 Suburban Lane, WA",
+      "phone": "321-098-7654",
+      "email": "apdivcomctg@gmail.com",
+      "website": "https://suburbanhomes.com",
+      "userVerification": "agent"
+    },
+    "price": { "min": 23230, "max": 43453 },
+    "status": "For Rent",
+    "type": "House",
+    "yearsAgo": "3 years ago",
+    "details": "A cozy suburban home with modern upgrades and a spacious yard in Seattle.",
+    "bedrooms": 4,
+    "toilets": 2,
+    "apartmentArea": 2500,
+    "garageSize": 2,
+    "verificationStatus": "pending"
+  }
+]

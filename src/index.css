@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+  :root {
+    /* For rgb(255 115 179 / 1) */
+    --color-primary: 255 115 179;
+  }
+}
+
+a.active:hover {
+  background-color: #70b100;
+}
+a.active {
+  background-color: #70b100;
+}
+
+.mapouter {
+  position: relative;
+  text-align: right;
+  width: 400px;
+  height: 300px;
+}
+.gmap_canvas {
+  overflow: hidden;
+  background: none !important;
+  width: 400px;
+  height: 300px;
+}
+.gmap_iframe {
+  width: 400px !important;
+  height: 300px !important;
+}
