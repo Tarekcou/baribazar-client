@@ -2,12 +2,11 @@ import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { AuthContext } from "../../../provider/AuthProvider";
-import {
-  QueryClient,
-  QueryClientProvider,
-  useQuery,
-} from "@tanstack/react-query";
-const SoldProperties = () => {
+import { useQuery } from "@tanstack/react-query";
+
+const SoldPropertiesAmount = () => {
+  const [totalSoldAmount, setTotalSoldAmount] = useState(0);
+
 
   const axiosSecure = useAxiosSecure();
   const { user } = useContext(AuthContext);
@@ -16,17 +15,15 @@ const SoldProperties = () => {
     isPending,
     loading,
     error,
-    data: boughtProperties = [],
+    data: properties = [],
   } = useQuery({
-    queryKey: ["propertyBought"],
+    queryKey: ["propertySoldAmount"],
     queryFn: async () => {
-      const res = await axiosSecure.get(`/propertyBought/${user.email}`,{params: {status:"Bought"}});
-      // console.log(res.data);
+      const res = await axiosSecure.get(`/propertyBought/propertySoldAmount/${user.email}`);
+      console.log(res.data);
       return res.data;
     },
   });
-
-
 
   if (loading) return <div className="text-center mt-8">Loading...</div>;
   if (error) return <div className="text-center mt-8 text-red-500">{error}</div>;
@@ -34,6 +31,17 @@ const SoldProperties = () => {
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4">Sold Properties</h1>
+
+      {/* Total Sold Amount */}
+      <div className="mb-4 p-4 bg-gray-100 border rounded shadow">
+        <h2 className="text-lg font-semibold">Total Sold Amount</h2>
+       
+        <p className="text-xl font-bold text-green-600"> ${
+            properties.reduce((acc, property) => acc + property.offerAmount, 0)
+        }</p>
+      </div>
+
+      {/* Sold Properties Table */}
       <div className="overflow-x-auto">
         <table className="min-w-full bg-white border border-gray-200">
           <thead className="bg-gray-200">
@@ -46,7 +54,7 @@ const SoldProperties = () => {
             </tr>
           </thead>
           <tbody>
-            {boughtProperties.map((property) => (
+            {properties.map((property) => (
               <tr key={property._id} className="odd:bg-gray-50 even:bg-white">
                 <td className="px-4 py-2 border">{property.title}</td>
                 <td className="px-4 py-2 border">{property.location}</td>
@@ -62,4 +70,4 @@ const SoldProperties = () => {
   );
 };
 
-export default SoldProperties;
+export default SoldPropertiesAmount;

@@ -8,8 +8,8 @@ const ContactUs = () => {
         alt="Responsive Example"
         className="w-full h-[50vh] object-cover"
       />
-      <div className="top-1/2 z-20 absolute w-full text-white">
-        <div className="flex justify-between items-center gap-10 mx-auto w-8/12">
+      <div className=" top-2 md:top-1/2 z-20 absolute w-full text-white">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-10 mx-auto w-11/12 md:w-8/12">
           <div>
             <h1 className="font-bold text-3xl">Find Best Place For Living</h1>
             <p className="w-8/12">

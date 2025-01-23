@@ -38,7 +38,7 @@ const WishListCard = ({ property, handleDelete }) => {
                 : "bg-yellow-100 text-yellow-600"
             }`}
           >
-            {property.verificationStatus}
+            {property.verificationStatus=='verified'?"Accepted":property.verificationStatus}
           </span>
         </div>
 
@@ -78,17 +78,21 @@ const WishListCard = ({ property, handleDelete }) => {
         <div className="flex">
           {property.verificationStatus === "rejected" ||
           !isAdmin ||
-          !isAgent ? (
-            <></>
-          ) : (
+          !isAgent || property.verificationStatus=='verified'? (
+            property.status == "Bought"?<h1 className="text-3xl  btn btn-outline my-2 text-success">Bought</h1>:
+
             <Link
-              to={`/dashboard/makeoffer`}
-              state={{ property: property }}
-              className="bg-green-500 hover:bg-green-600 mt-4 text-sm text-white transition btn btn-sm"
-            >
-              <FaEdit />
-              Make an offer
-            </Link>
+            to={`/dashboard/makeoffer`}
+            state={{ property: property }}
+            className="bg-green-500 hover:bg-green-600 mt-4 text-sm text-white transition btn btn-sm"
+          >
+            <FaEdit />
+            Make an offer
+          </Link>
+          ) : (
+
+            <></>
+           
           )}
 
           <button

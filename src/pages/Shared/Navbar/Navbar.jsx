@@ -1,11 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 
 import { FaUserAlt } from "react-icons/fa";
 import { FaCartPlus } from "react-icons/fa";
-import logo from "../../../assets/logo.jpg";
-import logo2 from "../../../assets/logo2.png";
-import logo3 from "../../../assets/logo3.jpg";
+
 import BariBazar from "../../../assets/BariBazar.png";
 import { AuthContext } from "../../../provider/AuthProvider";
 import ThemeProvider from "../../../provider/ThemeProvider";
@@ -17,6 +15,8 @@ const Navbar = () => {
 
   const { theme, toggleTheme, isDark } = ThemeProvider();
   const [wishlist] = useWishList();
+  const location=useLocation();
+  const isDashboard = location.pathname === "/dashboard";
 
   const handleLogOut = () => {
     logOut();
@@ -126,10 +126,12 @@ const Navbar = () => {
       </NavLink>
     </div>
   );
+  if(isDashboard)
+    return
   return (
     <>
       <div className="bg-black py-2 text-white">
-        <div className="flex justify-between items-center mx-auto w-9/12">
+        <div className="flex justify-between items-center mx-auto w-11/12 md:w-10/12 lg:w-9/12">
           {/* left side */}
           <div className="flex justify-center items-center">
             <div className="block lg:!hidden dropdown">

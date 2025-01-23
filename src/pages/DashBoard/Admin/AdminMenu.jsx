@@ -7,8 +7,8 @@ import { NavLink } from "react-router-dom";
 
 const AdminMenu = () => {
   return (
-    <div className="">
-      <h1 className="bg-blue-200 mb-5 py-2 border font-bold text-center">
+    <div className="text-xs space-y-2">
+      <h1 className="bg-blue-200 mb-5 py-5 border font-bold text-center text-2xl">
         Admin
       </h1>
       <NavLink className={"btn border-none w-full"} to="/dashboard/allUsers">
@@ -28,6 +28,13 @@ const AdminMenu = () => {
       >
         <MdReviews />
         Manage Reviews
+      </NavLink>
+      <NavLink
+        className={"btn border-none w-full"}
+        to="/dashboard/advertiseProperties"
+      >
+        <MdReviews />
+        Advertise property
       </NavLink>
       <NavLink
         className={"btn border-none w-full"}

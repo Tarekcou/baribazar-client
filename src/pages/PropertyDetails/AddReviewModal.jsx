@@ -14,7 +14,7 @@ const AddReviewModal = ({
   const [success, setSuccess] = useState("");
   const axiosPublic = useAxiosPublic();
   const { user } = useContext(AuthContext);
-  console.log(property, user);
+  // console.log(property, user);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

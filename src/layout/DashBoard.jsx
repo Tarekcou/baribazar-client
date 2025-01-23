@@ -27,8 +27,8 @@ const DashBoard = () => {
   // const isAdmin = false;
   const [isAgent] = useAgent();
   return (
-    <div className="flex gap-10">
-      <div className="fixed flex flex-col items-center gap-3 bg-primary/40 p-10 w-64 min-h-screen">
+    <div className="relative flex gap-10">
+      <div className="fixed top-0 left-0 overflow-y-auto flex flex-col items-center gap-3 bg-primary/70  p-2 lg:p-10 w-36 lg:w-64 min-h-screen">
         {/* Theme Control */}
         <label className="swap-rotate text-center btn btn-circle btn-ghost swap">
           <input
@@ -85,9 +85,12 @@ const DashBoard = () => {
       </div>
 
       {/* Main Content */}
-      <div className="ml-64 p-10 w-full">
-        <h1 className="mb-5 font-bold text-3l text-center">Dashboard</h1>
+      <div className="ml-36 lg:ml-64  w-full flex-1  ">
+        <h1 className=" font-bold p-2 lg:p-4  text-xl md:text-3l text-center bg-white  shadow-lg lg:text-4xl text-black fixed w-full">Welcome to Dashboard</h1>
+        <div className="p-5 mt-24">
         <Outlet />
+        </div>
+        
       </div>
     </div>
   );

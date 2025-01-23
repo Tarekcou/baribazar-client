@@ -59,7 +59,7 @@ const MakeOffer = () => {
       }).then((result) => {
         if (result.isConfirmed) {
           axiosPublic.post("/propertyBought", offerData).then((res) => {
-            console.log(res.status);
+            console.log(res.data);
             if (res.status == 200) {
               Swal.fire("Saved!", "", "success");
               navigate("/dashboard/propertyBought");
@@ -116,6 +116,15 @@ const MakeOffer = () => {
             className="bg-gray-100 px-4 py-2 border rounded-md w-full text-gray-600"
           />
         </div>
+        <div>
+          <label className="block font-medium text-gray-700">Agent Email</label>
+          <input
+            type="text"
+            value={agent.email}
+            readOnly
+            className="bg-gray-100 px-4 py-2 border rounded-md w-full text-gray-600"
+          />
+        </div>
 
         <div>
           <label className="block font-medium text-black text-xl">
@@ -131,6 +140,16 @@ const MakeOffer = () => {
         </div>
 
         <div>
+          <label className="block font-medium text-gray-700">Buyer Name</label>
+          <input
+            type="text"
+            value={user.displayName}
+            readOnly
+            className="bg-gray-100 px-4 py-2 border rounded-md w-full text-gray-600"
+          />
+        </div>
+
+        <div>
           <label className="block font-medium text-gray-700">Buyer Email</label>
           <input
             type="email"
@@ -140,15 +159,7 @@ const MakeOffer = () => {
           />
         </div>
 
-        <div>
-          <label className="block font-medium text-gray-700">Buyer Name</label>
-          <input
-            type="text"
-            value={user.displayName}
-            readOnly
-            className="bg-gray-100 px-4 py-2 border rounded-md w-full text-gray-600"
-          />
-        </div>
+        
 
         <div>
           <label className="block font-medium text-gray-700">Buying Date</label>

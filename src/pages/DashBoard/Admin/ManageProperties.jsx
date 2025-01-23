@@ -34,7 +34,7 @@ const ManageProperties = () => {
         confirmButtonText: "Save",
         icon: "success",
       }).then(async (result) => {
-        const res = await axiosSecure.patch(`/properties/${id}`, {
+        const res = await axiosSecure.patch(`/adminProperties/${id}`, {
           verificationStatus: verificationStatus,
         });
         if (res.data.modifiedCount > 0) {

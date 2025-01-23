@@ -6,7 +6,7 @@ import four from "../../assets/4.png";
 const Company = () => {
   return (
     <div className="">
-      <div className="flex justify-between mx-auto w-9/12">
+      <div className="flex justify-between mx-auto flex-wrap w-9/12">
         <img className="w-24 h-20 cursor-pointer" src={one} alt="" />
         <img className="w-24 h-20 cursor-pointer" src={two} alt="" />
         <img className="w-24 h-20 cursor-pointer" src={three} alt="" />

@@ -7,9 +7,14 @@ import banner3 from "../../assets/banner3.jpg";
 const Banner = () => {
   return (
     <div className="relative">
+      <div className="absolute top-1/3 space-y-2  pt-5 text-center z-10 text-white mx-auto w-full">
+      <h2 className="text-[#70b100] text-base md:text-xl font-semibold">Want to join us now!!!</h2>
+      <h1 className="font-bold md:text-5xl text-3xl">The Best Way To Find Your Perfect Home</h1>
+      <div className="mx-auto w-20 divider divider-success"></div>
+    </div>
       <Carousel
         autoPlay
-        // infiniteLoop
+        infiniteLoop
 
         interval={3000}
         showThumbs={false}

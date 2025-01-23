@@ -5,6 +5,7 @@ import { AuthContext } from "../provider/AuthProvider";
 
 const axiosSecure = axios.create({
   baseURL: "https://baribazar-server.vercel.app",
+  // baseURL: "http://localhost:5005",
 });
 const useAxiosSecure = () => {
   const navigate = useNavigate();

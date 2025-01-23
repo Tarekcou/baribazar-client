@@ -2,7 +2,7 @@ import React from "react";
 import img3 from "../../assets/best3.jpg";
 const About = () => {
   return (
-    <div className="mx-auto py-16 w-8/12">
+    <div className="mx-auto py-16 w-full md:w-10/12 lg:w-8/12">
       <div className="flex lg:flex-row flex-col items-center mx-auto px-4 container">
         {/* Text Section */}
         <div className="lg:w-1/2">
@@ -32,7 +32,7 @@ const About = () => {
         </div>
 
         {/* Image Section */}
-        <div className="mt-8 lg:mt-0 lg:ml-8 lg:w-1/2 h-[60vh] overflow-hidden">
+        <div className="mt-8 lg:mt-0 lg:ml-8 lg:w-1/2 w-full h-[60vh] overflow-hidden">
           <img
             src={img3} // Replace with your actual image URL
             alt="Modern Real Estate"

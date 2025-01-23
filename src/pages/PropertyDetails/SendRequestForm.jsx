@@ -8,9 +8,9 @@ const SendRequestForm = () => {
           Submit a Request
         </h2>
         <form>
-          <div className="flex justify-between gap-3 w-full">
+          <div className="flex flex-col lg:flex-row justify-between lg:gap-3 w-full">
             {/* Full Name */}
-            <div className="mb-4 w-1/2">
+            <div className="mb-4 lg:w-1/2">
               <label
                 htmlFor="fullName"
                 className="block mb-2 font-medium text-gray-700"
@@ -26,7 +26,7 @@ const SendRequestForm = () => {
             </div>
 
             {/* Phone Number */}
-            <div className="mb-4 w-1/2">
+            <div className="mb-4 lg:w-1/2">
               <label
                 htmlFor="phoneNumber"
                 className="block mb-2 font-medium text-gray-700"
@@ -42,7 +42,7 @@ const SendRequestForm = () => {
             </div>
 
             {/* Email */}
-            <div className="mb-4 w-1/2">
+            <div className="mb-4 lg:w-1/2">
               <label
                 htmlFor="email"
                 className="block mb-2 font-medium text-gray-700"

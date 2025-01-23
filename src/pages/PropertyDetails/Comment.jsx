@@ -3,15 +3,15 @@ import React from "react";
 const Comment = () => {
   return (
     <div>
-      <div className="flex justify-center items-center px-4">
+      <div className="flex justify-center items-center px-4 w-full">
         <div className="p-8 rounded-lg w-full">
           <h2 className="mb-6 font-bold text-2xl text-center text-gray-800">
             Leave a Comment
           </h2>
           <form>
-            <div className="flex justify-between gap-3 w-full">
+            <div className="flex flex-col lg:flex-row justify-between lg:gap-3 w-full">
               {/* Full Name */}
-              <div className="mb-4 w-1/2">
+              <div className="mb-4 lg:w-1/2">
                 <label
                   htmlFor="fullName"
                   className="block mb-2 font-medium text-gray-700"
@@ -27,7 +27,7 @@ const Comment = () => {
               </div>
 
               {/* Email */}
-              <div className="mb-4 w-1/2">
+              <div className="mb-4 lg:w-1/2">
                 <label
                   htmlFor="email"
                   className="block mb-2 font-medium text-gray-700"

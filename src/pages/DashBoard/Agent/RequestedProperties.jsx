@@ -16,7 +16,7 @@ const RequestedProperties = () => {
     queryKey: ["agentRequestedProperties"],
     queryFn: async () => {
       const res = await axiosSecure.get(`/propertyRequested/${user.email}`);
-      console.log(res.data);
+      console.log (res.data);
 
       // console.log(arr);
       return res.data; // Ensure this returns an array
@@ -48,6 +48,7 @@ const RequestedProperties = () => {
         <table className="w-full table table-auto">
           <thead>
             <tr className="bg-gray-200">
+              <th>#</th>
               <th className="p-3">Property Title</th>
               <th className="p-3">Location</th>
               <th className="p-3">Buyer Email</th>
@@ -57,11 +58,13 @@ const RequestedProperties = () => {
               <th className="p-3">Actions</th>
             </tr>
           </thead>
-          {properties.length}
+        
           <tbody>
             {properties.length > 0 ? (
-              properties.map((property) => (
+              properties.map((property,index) => (
                 <tr key={property._id} className="border-b">
+                  
+                  <td className="p-3">{index+1}</td>
                   <td className="p-3">{property.title || "N/A"}</td>
                   <td className="p-3">{property.location || "N/A"}</td>
                   <td className="p-3">{property.buyerEmail || "N/A"}</td>

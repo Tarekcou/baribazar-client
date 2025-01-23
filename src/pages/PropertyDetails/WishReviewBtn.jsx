@@ -42,7 +42,7 @@ const WishReviewBtn = ({
         agent: property.agent,
       };
       axiosSecure.post(`/wishlist`, wishList).then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         // setWishList([...wishList, res.data]);
         // setLoading(false);
         showSuccessAlert("One Item Successfully Added to Wishlist", "success");
@@ -65,7 +65,7 @@ const WishReviewBtn = ({
         },
       })
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         if (res.data) {
           setBtnDisabled(true);
         }
@@ -85,7 +85,7 @@ const WishReviewBtn = ({
 
   return (
     <div>
-      <div className="flex justify-center gap-2 mx-auto my-5 w-full">
+      <div className="flex flex-col md:flex-row justify-center gap-2 mx-auto my-5 w-full">
         <button
           disabled={btnDisabled}
           onClick={handleWishClick}

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 import best1 from "../../assets/best1.jpg";
@@ -12,11 +12,13 @@ import SendRequestForm from "./SendRequestForm";
 import Comment from "./Comment";
 import Review from "../Home/ReviewAndBlog/Review";
 import WishReviewBtn from "./WishReviewBtn";
+import useAdmin from "../../hooks/useAdmin";
+import useAgent from "../../hooks/useAgent";
 
 const PropertyDetails = () => {
   const location = useLocation();
   // console.log(location.state);
-  const property = location.state;
+  const property = location?.state;
   const [btnDisabled, setBtnDisabled] = useState(false);
 
   const handleBtnDisabled = () => {
@@ -25,12 +27,19 @@ const PropertyDetails = () => {
     // return btnDisabled;
     setBtnDisabled(true);
   };
+  const [isAdmin,]=useAdmin();
+  const [isAgent,] = useAgent();
+  console.log(isAdmin);
+  // console.log(property);
+  const navigate=useNavigate()
+  if(property==null)return 
   return (
-    <div className="space-y-4 bg-slate-100 mx-auto my-5 p-10 w-10/12">
+    <div className="space-y-4 bg-slate-100 mx-auto my-5 lg:p-10 p-4 w full lg:w-10/12">
       <div className="flex justify-between items-center">
         <h1 className="flex-1 font-bold text-3xl">{property?.title}</h1>
 
         {/* wish review btn */}
+        {isAdmin ||isAgent ?<></>:
         <WishReviewBtn
           place={"top"}
           handleBtnDisabled={handleBtnDisabled}
@@ -38,9 +47,10 @@ const PropertyDetails = () => {
           setBtnDisabled={setBtnDisabled}
           property={property}
         />
+        }
       </div>
       <Carousel autoPlay infiniteLoop zoom interval={3000}>
-        {property.images.map((image, index) => {
+        {property?.images.map((image, index) => {
           return (
             <div
               key={index}
@@ -55,11 +65,13 @@ const PropertyDetails = () => {
           );
         })}
       </Carousel>
+
+
       <div>
         {/* description */}
         <div>
           <h1 className="font-bold text-2xl">Details</h1>
-          <p>{property.details}</p>
+          <p>{property?.details}</p>
         </div>
         {/* adress */}
         <div className="space-y-6 my-5">
@@ -75,6 +87,7 @@ const PropertyDetails = () => {
           <OverView property={property} />
         </div>
         {/* wish review btn */}
+        {isAdmin||isAgent?<></>:
         <WishReviewBtn
           place={"bottom"}
           handleBtnDisabled={handleBtnDisabled}
@@ -82,6 +95,7 @@ const PropertyDetails = () => {
           setBtnDisabled={setBtnDisabled}
           property={property}
         />
+        }
         {/* Contact */}
         <ContactDetails agent={property.agent} />
         {/* review */}

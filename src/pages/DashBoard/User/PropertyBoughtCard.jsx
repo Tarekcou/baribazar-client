@@ -13,6 +13,17 @@ const PropertyBoughtCard = ({ property, handleDelete }) => {
   console.log(property);
   const axiosSecure = useAxiosSecure();
 
+
+const options = {
+  mode: 'payment',
+  amount: 1099,
+  currency: 'usd',
+  // Fully customizable with appearance API.
+  appearance: {
+    /*...*/
+  },
+};
+
   return (
     <div className="shadow-md rounded-lg overflow-hidden">
       {/* Property Image */}
@@ -72,10 +83,11 @@ const PropertyBoughtCard = ({ property, handleDelete }) => {
         {/* Update Delete Button */}
         <div className="flex justify-end">
           {property.status === "pending" ? (
-            <button className="my-2 btn btn-info btn-sm">
-              <FaRegEdit className="text-2xl" />
-              Update
-            </button>
+            // <Link state={{ property: property }} to={"/dashboard/makeoffer"} className="my-2 btn btn-info btn-sm">
+            //   <FaRegEdit className="text-2xl" />
+            //   Update
+            // </Link>
+            <></>
           ) : property.status === "rejected" ? (
             <button
               onClick={() => handleDelete(property._id)}
@@ -85,14 +97,15 @@ const PropertyBoughtCard = ({ property, handleDelete }) => {
               Delete
             </button>
           ) : (
-            <button
-              // to={`/dashboard/makeoffer`}
+             property.status === "Bought"?<h1 className="text-3xl  btn btn-outline my-2 text-success">Bought</h1>:
+            <Link state={{property}} to={`/dashboard/payment`}
               // state={{ property: property }}
               className="bg-green-500 hover:bg-green-600 mt-4 text-sm text-white transition btn btn-sm"
             >
               <FaEdit />
               Pay
-            </button>
+            </Link>
+            
           )}
         </div>
       </div>

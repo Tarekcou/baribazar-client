@@ -28,7 +28,7 @@ const Broker = () => {
   ];
 
   return (
-    <div className="space-y-4 mx-auto pb-16 w-8/12 h-auto text-center">
+    <div className="space-y-4 mx-auto pb-16 w-11/12 md:w-11/12 lg:w-8/12 h-auto text-center">
       <div className="divide-primary divider"></div>
 
       <div className="gap-3 grid grid-cols-1 md:grid-cols-4">

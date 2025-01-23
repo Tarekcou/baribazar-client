@@ -12,7 +12,7 @@ import { VscGitPullRequestGoToChanges } from "react-icons/vsc";
 const AgentMenu = () => {
   return (
     <div className="flex flex-col gap-2">
-      <h1 className="bg-blue-200 py-2 border font-bold text-center">Agent</h1>
+      <h1 className="bg-blue-200 py-5 border font-bold text-center">Agent</h1>
       <NavLink className={"btn border-none w-full"} to="/dashboard/addProperty">
         <MdOutlinePostAdd />
         Add Property
@@ -30,6 +30,13 @@ const AgentMenu = () => {
       >
         <MdSell />
         Sold Properties
+      </NavLink>
+      <NavLink
+        className={"btn border-none w-full"}
+        to="/dashboard/soldPropertiesAmount"
+      >
+        <MdSell />
+        Sold Amount
       </NavLink>
       <NavLink
         className={"btn border-none w-full"}

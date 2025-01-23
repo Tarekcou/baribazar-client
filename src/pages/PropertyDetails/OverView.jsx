@@ -1,7 +1,7 @@
 import React from "react";
 
 const OverView = ({ property }) => {
-  console.log(property);
+  // console.log(property);
   const {
     price,
     type,

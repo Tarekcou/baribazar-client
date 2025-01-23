@@ -25,6 +25,9 @@ import SoldProperties from "../pages/DashBoard/Agent/SoldProperties";
 import RequestedProperties from "../pages/DashBoard/Agent/RequestedProperties";
 import MakeOffer from "../pages/DashBoard/User/MakeOffer";
 import ManageUser from "../pages/DashBoard/Admin/ManageUser";
+import AdvertiseProperty from "../pages/DashBoard/Admin/AdvertiseProperty";
+import Payment from "../pages/DashBoard/User/CheckoutForm ";
+import SoldPropertiesAmount from "../pages/DashBoard/Agent/SoldPropertiesAmount";
 
 const routes = createBrowserRouter([
   {
@@ -70,14 +73,17 @@ const routes = createBrowserRouter([
       { path: "myprofile", element: <MyProfile /> },
       { path: "wishlist", element: <WishList /> },
       { path: "propertyBought", element: <PropertyBought /> },
+      { path: "soldPropertiesAmount", element: <SoldPropertiesAmount /> },
       { path: "makeoffer", element: <MakeOffer /> },
       { path: "reviews", element: <Review /> },
+      { path: "payment", element: <Payment /> },
 
       // Admin
       { path: "adminProfile", element: <AdminProfile /> },
       { path: "allUsers", element: <ManageUser /> },
       { path: "manageProperties", element: <ManageProperties /> },
       { path: "manageReviews", element: <ManageReviews /> },
+      { path: "advertiseProperties", element: <AdvertiseProperty /> },
 
       // Agent
       { path: "agentProfile", element: <AgentProfile /> },

@@ -66,15 +66,15 @@ const AllProperties = () => {
       </h1>
 
       {/* Search and Sort Functionality */}
-      <div className="flex justify-between items-center mb-4 w-full">
+      <div className="flex flex-col gap-2 md:flex-row justify-between items-center mb-4 w-full">
         <input
           type="text"
           placeholder="Search by location..."
           onChange={handleSearch}
-          className="input-bordered w-1/2 input"
+          className="input-bordered w-full md:w-1/2 input"
         />
 
-        <select onChange={handleSort} className="select-bordered select">
+        <select onChange={handleSort} className="select-bordered select w-full md:w-1/2">
           <option value="asc">Sort by Price (Low to High)</option>
           <option value="desc">Sort by Price (High to Low)</option>
         </select>

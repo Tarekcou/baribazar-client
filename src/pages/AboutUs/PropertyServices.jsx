@@ -37,7 +37,7 @@ const PropertyServices = () => {
   ];
 
   return (
-    <div className="mx-auto py-10 w-8/12">
+    <div className="mx-auto py-10 w-full md:10/12 lg:w-8/12">
       <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mx-auto px-4 max-w-7xl">
         {services.map((service, index) => (
           <div

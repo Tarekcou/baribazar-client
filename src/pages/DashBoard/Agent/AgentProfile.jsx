@@ -5,7 +5,7 @@ const AgentProfile = () => {
   const { user } = useContext(AuthContext);
   const { displayName, email, image, role } = user;
   return (
-    <div className="mx-auto p-6 max-w-md container">
+    <div className="mx-auto  w-full lg:max-w-md container">
       <div className="bg-white shadow-md p-6 rounded-lg">
         {/* User Image */}
         <div className="flex justify-center">

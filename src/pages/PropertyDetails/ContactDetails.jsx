@@ -4,7 +4,7 @@ const ContactDetails = ({ agent }) => {
   const { name, role, address, phone, email, website, image } = agent;
   return (
     <div className="flex justify-center items-center shadow-md my-10 px-4">
-      <div className="mx-auto p-10 rounded-lg overflow-hidden container">
+      <div className="mx-auto p-3  rounded-lg overflow-hidden container">
         <div className="items-center grid grid-cols-1 md:grid-cols-2">
           {/* Left Side: Contact Information */}
           <div className="p-8">

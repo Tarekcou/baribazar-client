@@ -30,6 +30,7 @@ const ManageUser = () => {
     },
   });
 
+
   // console.log(users);
   const handleUserDelete = (id) => {
     Swal.fire({
@@ -59,19 +60,19 @@ const ManageUser = () => {
   const handleMakeAdmin = (user, role) => {
     console.log(role);
     Swal.fire({
-      title: "Are you want to make him Admin?",
+      title: `Are you want to make him ${role}?`,
       text: "You won't be able to revert this!",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, Make Admin!",
+      confirmButtonText: `Yes, Make ${role}!`,
     }).then(async (result) => {
       if (result.isConfirmed) {
         const res = await axiosSecure.patch(`/users/role/${user._id}`, {
           role,
         });
-        console.log(res.data);
+        // console.log(res.data);
         if (res.data.modifiedCount > 0) {
           Swal.fire({
             title: `Want to make him ${role}!`,
@@ -80,6 +81,41 @@ const ManageUser = () => {
           });
           refetch();
         }
+      }
+    });
+  };
+  const [isFraud, setIsFraud] = useState(false);
+
+  const handleFraudClick = (user,id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, make him fraud!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure.patch(`/users/isFraud/${id}`).then((res) => {
+          // console.log(res);
+
+          // Delete All Properties
+          axiosSecure.delete(`/users/isFraud/${user.email}`)
+
+          
+          if (res.data.deletedCount > 0) {
+            Swal.fire({
+              title: "Frauded!",
+              text: `${user.name} is now fraud agent and all properties are deleted`,
+              icon: "success",
+            });
+            refetch();
+          }
+        });
+
+
+      
       }
     });
   };
@@ -115,13 +151,37 @@ const ManageUser = () => {
                         <GrUserAdmin />
                         Admin
                       </div>
-                    ) : user?.role === "Agent" ? (
-                      <div className="flex flex-col items-center text-base">
-                        <MdOutlineSupportAgent />
-                        Agent
-                      </div>
-                    ) : (
-                      <select
+                    ) :<div>
+                    
+                    
+                    
+                    
+                   { user?.role === "Agent" && user?.isFraud==true ?<h1 className="text-xl text-red-600 ring py-1 px-2 ring-red-600" >Fraud</h1> 
+                   
+                   :<>
+                    
+                    
+                    
+                    <div className="flex flex-col items-center text-base">
+                        
+
+                        {user?.role === "Agent" ? (<>
+                          <div><MdOutlineSupportAgent />
+                          Agent</div>
+                          <button
+               onClick={()=>handleFraudClick(user,user._id)}
+                className="btn btn-error btn-sm"
+              >
+                 Mark as Fraud
+              </button>
+                        
+                        </>
+                          
+             
+                 ) : (
+               <div className="text-green-600 font-bold">
+                
+                <select
                         id="role"
                         onChange={(e) => handleMakeAdmin(user, e.target.value)} // Pass the selected value
                         className="w-full max-w-xs select-bordered select"
@@ -133,8 +193,20 @@ const ManageUser = () => {
                         <option>Admin</option>
                         <option>Agent</option>
                       </select>
-                    )}
+               </div>
+                 )}
+                      </div>
+                    
+                      
+                    
+                   
+                    </>
+                    }
+                    </div>
+                    
+                  }
                   </td>
+                  
 
                   <th>
                     <button

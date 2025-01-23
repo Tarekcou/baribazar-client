@@ -24,7 +24,7 @@ const UserMenu = ({ wishlist }) => {
   });
   return (
     <div>
-      <h1 className="bg-blue-200 py-2 border font-bold text-center">User</h1>
+      <h1 className="bg-blue-200 py-5 border font-bold text-center">User</h1>
 
       <NavLink className={"btn border-none w-full"} to="/dashboard/wishlist">
         <FaCartArrowDown />

@@ -21,7 +21,7 @@ const Home = () => {
         <BestHouse />
         {/* Advertisement */}
         <Header
-          heading="Properties For Sale & Rent"
+          heading="Properties For Sale & Rent(Advertised)"
           title="Our Featured Properties For Sale and Rent"
         />
         <Advertisement />

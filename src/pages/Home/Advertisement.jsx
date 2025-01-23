@@ -35,8 +35,10 @@ const Advertisement = () => {
     setFilter(status);
     // setCurrentPage(0); // Reset to the first page when changing filter
   };
+
+  if(properties.length===0)return <h1 className="text-3xl text-center my-5 text-red-400">Nothing Being Advertised...</h1>
   return (
-    <section className="mx-auto w-8/12">
+    <section className="mx-auto md:w-10/12 lg:w-8/12 w-11/12">
       <div className="mx-auto">
         {/* Filter Buttons */}
         <div className="flex justify-center gap-4 mb-6">

@@ -74,6 +74,7 @@ const SignUp = () => {
           const userInfo = {
             name,
             email,
+            isFraud: false,
           };
           console.log(userInfo);
           axiosPublic.post("/user", userInfo).then((res) => {

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import axios from "axios";
@@ -6,6 +6,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { SweetAlertContext } from "../../../provider/SweetAlertProvider";
 import { AuthContext } from "../../../provider/AuthProvider";
 import { useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const image_bb_hosting_key = import.meta.env.VITE_BB_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_bb_hosting_key}`;
@@ -28,7 +29,16 @@ const AddProperty = () => {
   const { user } = useContext(AuthContext);
   const locate = useLocation();
   const navigate = useNavigate();
-  console.log(locate.state);
+  const [isFraud,seFraud] = useState(false);
+  // console.log(locate.state);
+  useEffect(()=>{
+    console.log(user)
+    axiosSecure.get("/user/isFraud",{params:{email:user.email}})
+    .then((res)=>{
+      console.log(res.data)
+      seFraud(res.data.isFraud)
+    })
+  },[])
   const {
     _id,
     agent,
@@ -78,6 +88,9 @@ const AddProperty = () => {
       throw err; // Re-throw for higher-level error handling
     }
   };
+  const upLoadImage=(data)=>{
+
+  }
 
   const onSubmit = async (data) => {
     console.log("Submitted Data: ", data);
@@ -85,59 +98,72 @@ const AddProperty = () => {
     try {
       // Upload property images
 
-      const propertyImages = data.images || [];
-      const propertyImageURLs = await uploadImages(propertyImages);
-      console.log(propertyImageURLs);
-      // Upload agent image
-      const agentImages = data.agentImage?.[0];
-      const agentImageURL = agentImages
-        ? (await uploadImages([agentImages]))[0]
-        : null;
-
-      if (!agentImageURL) {
-        console.warn("No agent image uploaded.");
-      }
+     
 
       // Construct data for submission
-      const price = {
-        min: parseInt(data.minPrice),
-        max: parseInt(data.maxPrice),
-      };
-
-      const agent = {
-        name: user.displayName, // Ensure `displayName` is defined
-        email: user.email, // Ensure `email` is defined
-        image: agentImageURL,
-        phone: data.phone,
-        website: data.website,
-        address: data.address,
-        role: data.role,
-        verificationStatus: "pending",
-      };
-      const { images, agentImage, ...filterData } = data;
-      const propertyData = {
-        ...filterData,
-        images: propertyImageURLs,
-        price,
-        location: data.location,
-        bedrooms: parseInt(data.bedrooms),
-        toilets: parseInt(data.toilets),
-        garageSize: parseInt(data.garageSize),
-        yearsAgo: parseInt(data.yearsAgo),
-        agent,
-      };
-
-      console.log("Property Data: ", propertyData);
-      if (agentImageURL && propertyImageURLs) {
+      
+    
         if (locate?.pathname === "/dashboard/addProperty") {
           Swal.fire({
-            title: title || "Do you want to Add?",
+            title:  "Do you want to Add?",
             // showDenyButton: true,
             showCancelButton: true,
             confirmButtonText: "Save",
-            icon: alertIcon || "success",
+            icon:  "success",
           }).then(async (result) => {
             if (result.isConfirmed) {
+
+              // upload image
+              const propertyImages = data.images || [];
+              const propertyImageURLs = await uploadImages(propertyImages);
+              console.log(propertyImageURLs);
+              Swal.fire("Uploading Image!", "", "success");
+              // Upload agent image
+              const agentImages = data.agentImage?.[0];
+              const agentImageURL = agentImages
+                ? (await uploadImages([agentImages]))[0]
+                : null;
+        
+              if (!agentImageURL) {
+                console.warn("No agent image uploaded.");
+              }
+
+
+
+
+              // upload data
+
+
+              const price = {
+                min: parseInt(data.minPrice),
+                max: parseInt(data.maxPrice),
+              };
+        
+              const agent = {
+                name: user.displayName, // Ensure `displayName` is defined
+                email: user.email, // Ensure `email` is defined
+                image: agentImageURL,
+                phone: data.phone,
+                website: data.website,
+                address: data.address,
+                role: data.role,
+                verificationStatus: "pending",
+              };
+              const { images, agentImage, ...filterData } = data;
+              const propertyData = {
+                ...filterData,
+                images: propertyImageURLs,
+                price,
+                location: data.location,
+                bedrooms: parseInt(data.bedrooms),
+                toilets: parseInt(data.toilets),
+                garageSize: parseInt(data.garageSize),
+                yearsAgo: parseInt(data.yearsAgo),
+                agent,
+                verificationStatus: "pending",
+              };
+        
+              console.log("Property Data: ", propertyData);
               const res = await axiosSecure.post("/properties", propertyData);
               if (res.data.insertedId) {
                 showSuccessAlert();
@@ -160,7 +186,7 @@ const AddProperty = () => {
             console.error("Error updating property", res.data);
           }
         }
-      }
+      
 
       // Submit the `propertyData` to your backend
       // await axios.post('/your-backend-endpoint', propertyData);
@@ -185,6 +211,11 @@ const AddProperty = () => {
     const previews = files.map((file) => URL.createObjectURL(file));
     setPreviewAgentImages(previews);
   };
+
+  if(isFraud){
+    
+    
+    return <h1 className="text-2xl">You are Fraud Can't Add any Properties</h1>};
 
   return (
     <div className="bg-white shadow-md mx-auto p-6 rounded-md max-w-4xl">
@@ -523,7 +554,7 @@ const AddProperty = () => {
         </div>
 
         {/* Role */}
-        <div>
+        {/* <div>
           <label className="block font-medium text-gray-700 text-sm">
             Role
           </label>
@@ -538,7 +569,7 @@ const AddProperty = () => {
           {errors.role && (
             <p className="text-red-500 text-sm">{errors.role.message}</p>
           )}
-        </div>
+        </div> */}
 
         {/* Address */}
         <div>
@@ -568,7 +599,7 @@ const AddProperty = () => {
             {...register("phone", {
               required: "Phone number is required",
               pattern: {
-                value: /^\d{3}-\d{3}-\d{4}$/,
+                
                 message: "Enter a valid phone number (e.g., 555-123-4567)",
               },
             })}
