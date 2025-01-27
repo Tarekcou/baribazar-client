@@ -86,7 +86,7 @@ const ManageUser = () => {
   };
   const [isFraud, setIsFraud] = useState(false);
 
-  const handleFraudClick = (user,id) => {
+  const handleFraudClick = (user,id,isFraud) => {
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -94,11 +94,12 @@ const ManageUser = () => {
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, make him fraud!",
+      confirmButtonText: "Yes, make him!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axiosSecure.patch(`/users/isFraud/${id}`).then((res) => {
+        axiosSecure.patch(`/users/isFraud/${id}`,{isFraud}).then((res) => {
           // console.log(res);
+          refetch();
 
           // Delete All Properties
           axiosSecure.delete(`/users/isFraud/${user.email}`)
@@ -110,7 +111,6 @@ const ManageUser = () => {
               text: `${user.name} is now fraud agent and all properties are deleted`,
               icon: "success",
             });
-            refetch();
           }
         });
 
@@ -122,10 +122,10 @@ const ManageUser = () => {
 
   return (
     <div className="w-full">
-      <Header heading="Manage All Users" title="How Many!!" />
+      <h1 className="text-2xl font-bold">Manage All Users</h1>
 
       <div className="w-full">
-        <h1>Total User: {users.length}</h1>
+        <h1 className="font-semibold">Total User: {users.length}</h1>
         <table className="table">
           {/* head */}
           <thead>
@@ -138,6 +138,7 @@ const ManageUser = () => {
             </tr>
           </thead>
           <tbody className="w-full text-base text-center">
+            
             {users.map((user, index) => {
               return (
                 <tr key={index + 1}>
@@ -145,7 +146,9 @@ const ManageUser = () => {
                   <td>{user.name}</td>
                   <td>{user.email}</td>
 
-                  <td className="flex justify-center items-center mx-auto text-2xl text-yellow-500 cursor-pointer">
+                  <td className="flex justify-center items-center mx-auto text-2xl text-yellow-500 ">
+                    
+                    <div className="flex-1">
                     {user?.role === "Admin" ? (
                       <div className="flex flex-col items-center text-base">
                         <GrUserAdmin />
@@ -156,7 +159,15 @@ const ManageUser = () => {
                     
                     
                     
-                   { user?.role === "Agent" && user?.isFraud==true ?<h1 className="text-xl text-red-600 ring py-1 px-2 ring-red-600" >Fraud</h1> 
+                   { user?.role === "Agent" && user?.isFraud==true ?<div className="flex flex-col gap-1 items-center text-base">
+                   <span className="text-xl text-red-600 p-1 ring rounded  ring-blue-600" >Fraud  </span> 
+                   <button
+                   onClick={()=>handleFraudClick(user,user._id,false)}
+                    className="btn btn-outline btn-xs"
+                  >
+                     UnMark Fraud
+                  </button>
+                  </div>
                    
                    :<>
                     
@@ -169,8 +180,8 @@ const ManageUser = () => {
                           <div><MdOutlineSupportAgent />
                           Agent</div>
                           <button
-               onClick={()=>handleFraudClick(user,user._id)}
-                className="btn btn-error btn-sm"
+               onClick={()=>handleFraudClick(user,user._id,true)}
+                className="btn btn-outline btn-xs text-red-500"
               >
                  Mark as Fraud
               </button>
@@ -178,23 +189,9 @@ const ManageUser = () => {
                         </>
                           
              
-                 ) : (
-               <div className="text-green-600 font-bold">
-                
-                <select
-                        id="role"
-                        onChange={(e) => handleMakeAdmin(user, e.target.value)} // Pass the selected value
-                        className="w-full max-w-xs select-bordered select"
-                      >
-                        <option disabled selected>
-                          Choose a role
-                        </option>
-
-                        <option>Admin</option>
-                        <option>Agent</option>
-                      </select>
-               </div>
-                 )}
+                 ) : <>
+                 <h1 className="text-xl">User</h1>
+                 </>}
                       </div>
                     
                       
@@ -205,6 +202,24 @@ const ManageUser = () => {
                     </div>
                     
                   }
+                  </div>
+               <div className="text-green-600 font-bold flex-1">
+                
+                <select
+                        id="role"
+                        onChange={(e) => handleMakeAdmin(user, e.target.value)} // Pass the selected value
+                        className="w-full max-w-xs select-bordered select"
+                      >
+                        <option disabled selected>
+                          Choose a role
+                        </option>
+
+                        <option>User</option>
+                        <option>Admin</option>
+                        <option>Agent</option>
+                      </select>
+               </div>
+                 
                   </td>
                   
 

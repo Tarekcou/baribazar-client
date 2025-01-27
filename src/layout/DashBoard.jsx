@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   FaBuyNLarge,
   FaCartArrowDown,
@@ -19,13 +19,33 @@ import useAgent from "../hooks/useAgent";
 import AdminMenu from "../pages/DashBoard/Admin/AdminMenu";
 import AgentMenu from "../pages/DashBoard/Agent/AgentMenu";
 import UserMenu from "../pages/DashBoard/User/UserMenu";
+import { AuthContext } from "../provider/AuthProvider";
+import Loading from "../components/Loading";
 
 const DashBoard = () => {
   const [wishlist] = useWishList();
   const { theme, toggleTheme, isDark } = ThemeProvider();
   const [isAdmin] = useAdmin();
+  const {isLoading}=useContext(AuthContext)
   // const isAdmin = false;
   const [isAgent] = useAgent();
+
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  if(isLoading) return <Loading />
   return (
     <div className="relative flex gap-10">
       <div className="fixed top-0 left-0 overflow-y-auto flex flex-col items-center gap-3 bg-primary/70  p-2 lg:p-10 w-36 lg:w-64 min-h-screen">
@@ -85,9 +105,16 @@ const DashBoard = () => {
       </div>
 
       {/* Main Content */}
-      <div className="ml-36 lg:ml-64  w-full flex-1  ">
-        <h1 className=" font-bold p-2 lg:p-4  text-xl md:text-3l text-center bg-white  shadow-lg lg:text-4xl text-black fixed w-full">Welcome to Dashboard</h1>
-        <div className="p-5 mt-24">
+      <div className="ml-36 lg:ml-64  w-full flex-1  relative">
+        <div 
+className={`fixed top-0 w-full z-10 px-6 py-4 transition-all  duration-300 ${
+  scrolled
+    ? "backdrop-blur-lg bg-primary/70 shadow-md"
+    : " bg-primary/70"
+}`}        >       
+           <h1 className=" text-3xl font-bold text-center"> Welcome to Dashboard</h1>
+        </div>     
+        <div className="p-5 mt-20">
         <Outlet />
         </div>
         
