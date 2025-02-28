@@ -5,8 +5,8 @@ const AgentProfile = () => {
   const { user } = useContext(AuthContext);
   const { displayName, email, image, role } = user;
   return (
-    <div className="mx-auto  w-full lg:max-w-md container">
-      <div className="bg-white shadow-md p-6 rounded-lg">
+    <div className="mx-auto w-full lg:max-w-md container">
+      <div className="shadow-md p-6 rounded-lg">
         {/* User Image */}
         <div className="flex justify-center">
           <img
@@ -18,7 +18,7 @@ const AgentProfile = () => {
 
         {/* User Details */}
         <div className="mt-4 text-center">
-          <h1 className="font-bold text-2xl text-gray-800">
+          <h1 className="font-bold text-gray-800 text-2xl">
             {displayName || "Anonymous"}
           </h1>
           <p className="text-gray-600">{email}</p>

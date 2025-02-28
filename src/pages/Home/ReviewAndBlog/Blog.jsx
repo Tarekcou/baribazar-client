@@ -88,7 +88,9 @@ const Blog = () => {
                       <h3 className="mb-1 font-semibold text-lg">
                         {post.title}
                       </h3>
-                      <p className="mb-1 text-gray-600">{post.description}</p>
+                      <p className="mb-1 text-gray-600 text-xs">
+                        {post.description}
+                      </p>
                       <div className="text-gray-500 text-sm">
                         <span className="block mb-2">
                           Author: {post.author}

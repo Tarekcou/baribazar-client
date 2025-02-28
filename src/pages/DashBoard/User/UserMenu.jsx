@@ -1,7 +1,7 @@
 import React from "react";
 import { FaBuyNLarge, FaCartArrowDown, FaUser } from "react-icons/fa";
 import { MdOutlineRateReview } from "react-icons/md";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import {
   QueryClient,
   QueryClientProvider,
@@ -24,8 +24,12 @@ const UserMenu = ({ wishlist }) => {
   });
   return (
     <div>
-      <h1 className="bg-blue-200 py-5 border font-bold text-center">User</h1>
-
+      <Link
+        to={"/dashboard"}
+        className="flex justify-center bg-blue-200 my-5 p-5 border w-full font-bold text-2xl text-center"
+      >
+        User
+      </Link>
       <NavLink className={"btn border-none w-full"} to="/dashboard/wishlist">
         <FaCartArrowDown />
         WishList

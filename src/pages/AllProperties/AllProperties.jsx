@@ -5,7 +5,13 @@ import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 const AllProperties = () => {
   const axiosPublic = useAxiosPublic();
+  const [properties, setProperties] = useState([]);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [sortOrder, setSortOrder] = useState("asc");
+  const [filter, setFilter] = useState("All");
 
+  // Fetch properties
   useEffect(() => {
     axiosPublic
       .get("/properties", { params: { verificationStatus: "verified" } })
@@ -14,46 +20,38 @@ const AllProperties = () => {
       });
   }, []);
 
-  const [properties, setProperties] = useState([]);
-  const [currentPage, setCurrentPage] = useState(0);
-  const [searchTerm, setSearchTerm] = useState("");
-  const [sortOrder, setSortOrder] = useState("asc");
-  const [filter, setFilter] = useState("All");
+  // Sort and filter properties when state changes
+  const getFilteredSortedProperties = () => {
+    let filtered = properties.filter(
+      (property) =>
+        property.location.toLowerCase().includes(searchTerm.toLowerCase()) &&
+        (filter === "All" || property.status === filter)
+    );
 
-  // Pagination logic
+    return filtered.sort((a, b) =>
+      sortOrder === "asc"
+        ? a.price.min - b.price.min
+        : b.price.min - a.price.min
+    );
+  };
+
+  // Use filtered and sorted data for pagination
+  const sortedProperties = getFilteredSortedProperties();
   const itemsPerPage = 6;
   const offset = currentPage * itemsPerPage;
-  const filteredProperties = properties.filter(
-    (property) =>
-      property.location.toLowerCase().includes(searchTerm.toLowerCase()) &&
-      (filter === "All" || property.status === filter)
-  );
-
-  const sortedProperties = [...filteredProperties].sort((a, b) => {
-    if (sortOrder === "asc") {
-      return a.price - b.price;
-    } else {
-      return b.price - a.price;
-    }
-  });
-
   const currentItems = sortedProperties.slice(offset, offset + itemsPerPage);
   const pageCount = Math.ceil(sortedProperties.length / itemsPerPage);
 
-  const handlePageClick = ({ selected }) => {
-    setCurrentPage(selected);
-  };
-
+  // Event Handlers
+  const handlePageClick = ({ selected }) => setCurrentPage(selected);
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
     setCurrentPage(0);
   };
-
   const handleSort = (e) => {
     setSortOrder(e.target.value);
     setCurrentPage(0);
   };
-
   const handleFilterChange = (status) => {
     setFilter(status);
     setCurrentPage(0);
@@ -61,26 +59,28 @@ const AllProperties = () => {
 
   return (
     <div className="mx-auto my-5 w-9/12 min-h-screen">
-      <h1 className="mb-6 font-bold text-2xl text-center text-gray-800">
+      <h1 className="mb-6 font-bold text-gray-800 text-2xl text-center">
         All Properties
       </h1>
 
-      {/* Search and Sort Functionality */}
-      <div className="flex flex-col gap-2 md:flex-row justify-between items-center mb-4 w-full">
+      {/* Search and Sort */}
+      <div className="flex md:flex-row flex-col justify-between items-center gap-2 mb-4 w-full">
         <input
           type="text"
           placeholder="Search by location..."
           onChange={handleSearch}
           className="input-bordered w-full md:w-1/2 input"
         />
-
-        <select onChange={handleSort} className="select-bordered select w-full md:w-1/2">
+        <select
+          onChange={handleSort}
+          className="w-full md:w-1/2 select-bordered select"
+        >
           <option value="asc">Sort by Price (Low to High)</option>
           <option value="desc">Sort by Price (High to Low)</option>
         </select>
       </div>
 
-      {/* Filter Buttons */}
+      {/* Filters */}
       <div className="flex justify-center gap-4 mb-6">
         {["All", "For Sale", "For Rent"].map((status) => (
           <button

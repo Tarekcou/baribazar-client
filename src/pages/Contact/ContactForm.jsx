@@ -12,7 +12,7 @@ const ContactForm = () => {
           <div className="gap-6 grid grid-cols-1 sm:grid-cols-2">
             <div>
               <label
-                className="block mb-2 font-bold text-gray-700"
+                className="block mb-2 font-bold text-gray-400"
                 htmlFor="name"
               >
                 Name
@@ -20,13 +20,13 @@ const ContactForm = () => {
               <input
                 type="text"
                 id="name"
-                className="border-gray-300 px-4 py-2 border rounded-lg focus:ring focus:ring-green-300 w-full focus:outline-none"
+                className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-green-300 w-full"
                 placeholder="Your Name"
               />
             </div>
             <div>
               <label
-                className="block mb-2 font-bold text-gray-700"
+                className="block mb-2 font-bold text-gray-400"
                 htmlFor="email"
               >
                 Email
@@ -34,7 +34,7 @@ const ContactForm = () => {
               <input
                 type="email"
                 id="email"
-                className="border-gray-300 px-4 py-2 border rounded-lg focus:ring focus:ring-green-300 w-full focus:outline-none"
+                className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-green-300 w-full"
                 placeholder="Your Email"
               />
             </div>
@@ -44,7 +44,7 @@ const ContactForm = () => {
           <div className="gap-6 grid grid-cols-1 sm:grid-cols-2">
             <div>
               <label
-                className="block mb-2 font-bold text-gray-700"
+                className="block mb-2 font-bold text-gray-400"
                 htmlFor="subject"
               >
                 Subject
@@ -52,13 +52,13 @@ const ContactForm = () => {
               <input
                 type="text"
                 id="subject"
-                className="border-gray-300 px-4 py-2 border rounded-lg focus:ring focus:ring-green-300 w-full focus:outline-none"
+                className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-green-300 w-full"
                 placeholder="Subject"
               />
             </div>
             <div>
               <label
-                className="block mb-2 font-bold text-gray-700"
+                className="block mb-2 font-bold text-gray-400"
                 htmlFor="phone"
               >
                 Phone
@@ -66,7 +66,7 @@ const ContactForm = () => {
               <input
                 type="tel"
                 id="phone"
-                className="border-gray-300 px-4 py-2 border rounded-lg focus:ring focus:ring-green-300 w-full focus:outline-none"
+                className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-green-300 w-full"
                 placeholder="Your Phone Number"
               />
             </div>
@@ -75,14 +75,14 @@ const ContactForm = () => {
           {/* Third Row: Message */}
           <div>
             <label
-              className="block mb-2 font-bold text-gray-700"
+              className="block mb-2 font-bold text-gray-400"
               htmlFor="message"
             >
               Message
             </label>
             <textarea
               id="message"
-              className="border-gray-300 px-4 py-2 border rounded-lg focus:ring focus:ring-green-300 w-full focus:outline-none"
+              className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-green-300 w-full"
               placeholder="Your Message"
               rows="5"
             ></textarea>

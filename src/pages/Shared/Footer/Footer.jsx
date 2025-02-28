@@ -12,13 +12,13 @@ const Footer = () => {
     lat: 40.7128, // Example location (New York City)
     lng: -74.006,
   };
-  const location=useLocation()
+  const location = useLocation();
   const isDashboard = location.pathname === "/dashboard";
-  if(isDashboard) return;
+  if (isDashboard) return;
   return (
-    <footer className="bg-black py-12 text-white">
-      <div className="mx-auto w-full lg:w-10/12">
-        <div className="flex flex-col lg:flex-row mx-auto px-6 md:px-12 container">
+    <footer className="relative bg-black py-10 text-white">
+      <div className="mx-auto mb-6 w-full lg:w-10/12">
+        <div className="flex lg:flex-row flex-col mx-auto px-6 md:px-12 container">
           <div className="items-center gap-12 grid grid-cols-1 md:grid-cols-2">
             {/* Footer Left - Company Info */}
             <div>
@@ -37,51 +37,50 @@ const Footer = () => {
             {/* Footer Middle - Quick Links */}
             <div>
               <h3 className="mb-4 font-semibold text-xl">Quick Links</h3>
-              <ul>
+              <ul className="space-y-2 text-white/80">
                 <li>
-                  <a href="#home" className="text-gray-400 hover:text-white">
+                  <a href="/" className="hover:text-gray-400">
                     Home
                   </a>
                 </li>
                 <li>
-                  <a href="#about" className="text-gray-400 hover:text-white">
+                  <a href="/aboutus" className="hover:text-gray-400">
                     About
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="#properties"
-                    className="text-gray-400 hover:text-white"
-                  >
-                    Properties
+                  <a href="/contact" className="hover:text-gray-400">
+                    Contact
                   </a>
                 </li>
                 <li>
-                  <a href="#contact" className="text-gray-400 hover:text-white">
-                    Contact
+                  <a href="/login " className="hover:text-gray-400">
+                    Login
                   </a>
                 </li>
               </ul>
             </div>
           </div>
           {/* Footer Right - Map */}
-          <div className="w-[200px]">
+          <div className="">
             <h3 className="mb-4 font-semibold text-xl">Find Us On</h3>
             <div className="mapouter">
-              <div className="gmap_canvas w-10/12">
+              <div className="w-full h-[300px] overflow-hidden">
                 <iframe
-                  className="gmap_iframe"
-                 
-                  src="https://maps.google.com/maps?width=300&amp;height=400&amp;hl=en&amp;q=Chittagong&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+                  className="w-full h-full"
+                  src="https://maps.google.com/maps?width=200&amp;height=200&amp;hl=en&amp;q=Chittagong&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+                  style={{ border: 0 }}
                 ></iframe>
               </div>
             </div>
           </div>
         </div>
-        {/* Footer Bottom */}
-        <div className="mt-12 text-center text-gray-400">
-          <p>&copy; 2025 RealEstate Co. All rights reserved.</p>
-        </div>
+      </div>
+      {/* Footer Bottom */}
+      <div className="bottom-0 z-10 absolute my-3 w-full text-gray-400 text-center">
+        <div class="w-full divider divider-neutral"></div>
+
+        <p>&copy; 2025 RealEstate Co. All rights reserved.</p>
       </div>
     </footer>
   );

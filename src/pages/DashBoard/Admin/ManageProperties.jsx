@@ -50,10 +50,10 @@ const ManageProperties = () => {
   };
 
   return (
-    <div className="mx-auto p-6 container">
+    <div className="mx-auto lg:p-6 container">
       <h2 className="mb-6 font-bold text-2xl">Manage Properties</h2>
       <div className="overflow-x-auto">
-        <table className="border-collapse w-full text-left table-auto">
+        <table className="w-full text-left border-collapse table-auto">
           <thead>
             <tr className="bg-gray-200">
               <th className="px-4 py-2">Property Title</th>

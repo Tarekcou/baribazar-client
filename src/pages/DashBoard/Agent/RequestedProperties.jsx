@@ -9,14 +9,14 @@ const RequestedProperties = () => {
 
   const {
     refetch,
-    data: properties = [],
+    data: requestedProperties = [],
     isLoading,
     error,
   } = useQuery({
     queryKey: ["agentRequestedProperties"],
     queryFn: async () => {
       const res = await axiosSecure.get(`/propertyRequested/${user.email}`);
-      console.log (res.data);
+      console.log(res.data);
 
       // console.log(arr);
       return res.data; // Ensure this returns an array
@@ -40,12 +40,13 @@ const RequestedProperties = () => {
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error fetching data: {error.message}</div>;
-
+  if (requestedProperties.length == 0)
+    return <h1 className="text-center">No Requested properties</h1>;
   return (
     <div className="mx-auto p-6 container">
       <h2 className="mb-4 font-bold text-2xl">Requested Properties</h2>
       <div className="overflow-x-auto">
-        <table className="w-full table table-auto">
+        <table className="table w-full table-auto">
           <thead>
             <tr className="bg-gray-200">
               <th>#</th>
@@ -58,13 +59,12 @@ const RequestedProperties = () => {
               <th className="p-3">Actions</th>
             </tr>
           </thead>
-        
+
           <tbody>
-            {properties.length > 0 ? (
-              properties.map((property,index) => (
+            {requestedProperties.length > 0 ? (
+              requestedProperties.map((property, index) => (
                 <tr key={property._id} className="border-b">
-                  
-                  <td className="p-3">{index+1}</td>
+                  <td className="p-3">{index + 1}</td>
                   <td className="p-3">{property.title || "N/A"}</td>
                   <td className="p-3">{property.location || "N/A"}</td>
                   <td className="p-3">{property.buyerEmail || "N/A"}</td>
@@ -117,7 +117,7 @@ const RequestedProperties = () => {
               ))
             ) : (
               <tr>
-                <td colSpan="7" className="p-4 text-center">
+                <td colSpan="7" className="mt-20 p-4 text-center">
                   No requested properties found.
                 </td>
               </tr>

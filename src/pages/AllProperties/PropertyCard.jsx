@@ -21,7 +21,7 @@ const PropertyCard = ({ property }) => {
       {/* Property Info */}
       <div className="p-4">
         <div className="flex justify-between">
-          <h3 className="font-bold text-gray-800 text-lg">{property.title}</h3>
+          <h3 className="font-bold text-lg">{property.title}</h3>
           <span
             className={`text-xs font-semibold px-2 py-1 rounded ${
               property.status === "For Sale"
@@ -33,7 +33,7 @@ const PropertyCard = ({ property }) => {
           </span>
         </div>
 
-        <p className="text-gray-600 text-sm">{property.location}</p>
+        <p className="text-sm">{property.location}</p>
 
         {/* agent? Details */}
         <div className="flex justify-between items-center mt-2">
@@ -55,7 +55,7 @@ const PropertyCard = ({ property }) => {
           <p className="font-semibold text-blue-500 text-sm">
             Min Price: ${property.price.min}
           </p>
-          <p className="font-semibold text-blue-500 text-end text-sm">
+          <p className="font-semibold text-blue-500 text-sm text-end">
             Max Price: ${property.price.max}
           </p>
         </div>
@@ -64,7 +64,7 @@ const PropertyCard = ({ property }) => {
         <Link
           to={`/property/${property._id}`}
           state={property}
-          className="bg-green-500 hover:bg-green-600 mt-4 text-sm text-white transition btn btn-sm"
+          className="bg-green-500 hover:bg-green-600 mt-4 text-white text-sm transition btn btn-sm"
         >
           View Details
         </Link>

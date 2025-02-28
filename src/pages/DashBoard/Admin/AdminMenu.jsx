@@ -3,14 +3,17 @@ import { FaUser } from "react-icons/fa";
 import { GrUserManager } from "react-icons/gr";
 import { LuTableProperties } from "react-icons/lu";
 import { MdReviews } from "react-icons/md";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const AdminMenu = () => {
   return (
-    <div className="text-xs space-y-2">
-      <h1 className="bg-blue-200 mb-5 py-5 border font-bold text-center text-2xl">
+    <div className="space-y-2 text-xs">
+      <Link
+        to={"/dashboard"}
+        className="flex justify-center bg-blue-200 my-5 p-5 border w-full font-bold text-2xl text-center"
+      >
         Admin
-      </h1>
+      </Link>
       <NavLink className={"btn border-none w-full"} to="/dashboard/allUsers">
         <GrUserManager />
         Manage Users
