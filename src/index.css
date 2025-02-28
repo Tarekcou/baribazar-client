@@ -13,6 +13,7 @@ a.active:hover {
 }
 a.active {
   background-color: #70b100;
+  color: #fff;
 }
 
 .mapouter {

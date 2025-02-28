@@ -111,12 +111,12 @@ const SignUp = () => {
       ) : (
         <>
           <div className="p-8 border rounded-lg w-11/12 md:w-7/12 lg:w-6/12">
-            <h2 className="font-bold text-3xl text-center text-green-700">
+            <h2 className="font-bold text-green-700 text-3xl text-center">
               Register
             </h2>
             <form onSubmit={handleRegister} className="mt-6">
               <div className="mb-4">
-                <label htmlFor="name" className="block text-gray-700">
+                <label htmlFor="name" className="block text-gray-400">
                   Name
                 </label>
                 <input
@@ -125,7 +125,7 @@ const SignUp = () => {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   required
-                  className="mt-2 px-4 py-2 border rounded-lg focus:ring focus:ring-blue-500 w-full focus:outline-none"
+                  className="mt-2 px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-blue-500 w-full"
                 />
                 {errMessage.name && (
                   <label className="text-red-600 text-xs">
@@ -134,7 +134,7 @@ const SignUp = () => {
                 )}
               </div>
               <div className="mb-4">
-                <label htmlFor="email" className="block text-gray-700">
+                <label htmlFor="email" className="block text-gray-400">
                   Email
                 </label>
                 <input
@@ -143,11 +143,11 @@ const SignUp = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="mt-2 px-4 py-2 border rounded-lg focus:ring focus:ring-blue-500 w-full focus:outline-none"
+                  className="mt-2 px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-blue-500 w-full"
                 />
               </div>
               <div className="mb-4">
-                <label htmlFor="password" className="block text-gray-700">
+                <label htmlFor="password" className="block text-gray-400">
                   Password
                 </label>
                 <div className="relative">
@@ -157,12 +157,12 @@ const SignUp = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
-                    className="relative mt-2 px-4 py-2 border rounded-lg focus:ring focus:ring-blue-500 w-full focus:outline-none"
+                    className="relative mt-2 px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-blue-500 w-full"
                   />
                   <button
                     type="button"
                     onClick={togglePasswordVisibility}
-                    className="top-5 right-3 absolute flex items-center text-gray-600 hover:text-blue-500"
+                    className="top-5 right-3 absolute flex items-center text-gray-400 hover:text-blue-500"
                   >
                     {showPassword ? (
                       <span>
@@ -182,7 +182,7 @@ const SignUp = () => {
                 </div>
               </div>
               <div className="mb-4">
-                <label htmlFor="password" className="block text-gray-700">
+                <label htmlFor="password" className="block text-gray-400">
                   Photo Url
                 </label>
                 <input
@@ -191,12 +191,12 @@ const SignUp = () => {
                   value={photoUrl}
                   onChange={(e) => setPhotoUrl(e.target.value)}
                   required
-                  className="mt-2 px-4 py-2 border rounded-lg focus:ring focus:ring-blue-500 w-full focus:outline-none"
+                  className="mt-2 px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-blue-500 w-full"
                 />
               </div>
               <button
                 type="submit"
-                className="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg w-full text-white focus:outline-none"
+                className="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg focus:outline-none w-full text-white"
               >
                 Sign up
               </button>
@@ -210,7 +210,7 @@ const SignUp = () => {
             {/* Social Login */}
             <SocialLogin />
 
-            <p className="mt-4 text-center text-gray-600 text-sm">
+            <p className="mt-4 text-gray-400 text-sm text-center">
               Already have an account?{" "}
               <a href="/login" className="text-blue-600 hover:underline">
                 Login here
@@ -218,7 +218,7 @@ const SignUp = () => {
             </p>
 
             {errMessage.submitError && (
-              <h1 className="text-center text-red-500">
+              <h1 className="text-red-500 text-center">
                 {errMessage.submitError}
               </h1>
             )}

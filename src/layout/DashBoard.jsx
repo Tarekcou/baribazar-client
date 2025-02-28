@@ -31,7 +31,7 @@ const DashBoard = () => {
   }, []);
 
   if (isLoading) return <Loading />;
-
+  console.log("dark", isDark);
   return (
     <div className="flex">
       {/* Drawer for Mobile */}
@@ -65,7 +65,11 @@ const DashBoard = () => {
       </div>
 
       {/* Left Sidebar for Large Screens */}
-      <div className="hidden fixed lg:flex flex-col bg-slate-100 p-6 w-64 h-screen overflow-y-auto">
+      <div
+        className={`hidden fixed lg:flex flex-col  p-6 w-64 h-screen overflow-y-auto 
+          ${isDark ? "bg-gray-900" : "bg-slate-100"}
+          `}
+      >
         <SidebarContent
           isAdmin={isAdmin}
           isAgent={isAgent}
@@ -79,7 +83,9 @@ const DashBoard = () => {
       <div className="relative flex-1 m-2 lg:ml-64 w-full min-w-0 h-screen overflow-y-auto">
         {/* Top Navbar */}
         <div
-          className={`  bg-slate-100 w-full fixed top-0 lg:left-60 right-0 z-10 px-6 py-4 transition-all duration-300 ${
+          className={`${
+            isDark ? "bg-gray-900" : "bg-slate-100"
+          }   w-full fixed top-0 lg:left-60 right-0 z-10 px-6 py-4 transition-all duration-300 ${
             scrolled ? "backdrop-blur-lg  shadow-md" : ""
           }`}
         >

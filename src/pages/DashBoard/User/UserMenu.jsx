@@ -26,7 +26,7 @@ const UserMenu = ({ wishlist }) => {
     <div>
       <Link
         to={"/dashboard"}
-        className="flex justify-center bg-blue-200 my-5 p-5 border w-full font-bold text-2xl text-center"
+        className="flex justify-center bg-blue-800 my-5 p-5 border rounded-sm w-full font-bold text-white text-2xl text-center"
       >
         User
       </Link>

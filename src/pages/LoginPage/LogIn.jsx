@@ -55,7 +55,7 @@ const LogIn = () => {
   };
 
   return (
-    <div className="flex justify-center items-center bg-gray-100 min-h-screen">
+    <div className="flex justify-center items-center min-h-screen">
       {isLoading ? (
         <Loading />
       ) : (
@@ -65,7 +65,7 @@ const LogIn = () => {
           </h2>
           <form onSubmit={handleLogin} className="mt-6">
             <div className="mb-4">
-              <label htmlFor="email" className="block text-gray-700">
+              <label htmlFor="email" className="block text-gray-400">
                 Email
               </label>
               <input
@@ -79,7 +79,7 @@ const LogIn = () => {
             </div>
 
             <div className="mb-4">
-              <label htmlFor="password" className="block text-gray-700">
+              <label htmlFor="password" className="block text-gray-400">
                 Password
               </label>
               <div className="relative">
@@ -94,7 +94,7 @@ const LogIn = () => {
                 <button
                   type="button"
                   onClick={togglePasswordVisibility}
-                  className="top-2 right-3 absolute inset-y-0 flex items-center text-gray-600 hover:text-blue-500"
+                  className="top-2 right-3 absolute inset-y-0 flex items-center text-gray-400 hover:text-blue-500"
                 >
                   {showPassword ? <FaEyeSlash /> : <FaEye />}
                 </button>
@@ -147,7 +147,7 @@ const LogIn = () => {
           {/* Social Login */}
           <SocialLogin />
 
-          <p className="mt-4 text-gray-600 text-sm text-center">
+          <p className="mt-4 text-gray-400 text-sm text-center">
             Don't have an account?{" "}
             <Link to="/signUp" className="text-blue-600 hover:underline">
               Register here
